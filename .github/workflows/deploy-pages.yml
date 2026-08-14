@@ -29,8 +29,10 @@ jobs:
 
       - run: npx ng build --configuration production --base-href /appbanco/
 
-      - name: Add SPA fallback for client-side routing
-        run: cp dist/appbanco/browser/index.html dist/appbanco/browser/404.html
+      - name: Use CSR shell as index and add SPA fallback for client-side routing
+        run: |
+          cp dist/appbanco/browser/index.csr.html dist/appbanco/browser/index.html
+          cp dist/appbanco/browser/index.html dist/appbanco/browser/404.html
 
       - uses: actions/configure-pages@v5
 
