@@ -1,0 +1,9 @@
+/* Config used by Playwright E2E tests and playwright.config.ts, so editors resolve `process`/Node types. */
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/e2e",
+    "types": ["node"]
+  },
+  "include": ["e2e/**/*.ts", "playwright.config.ts"]
+}

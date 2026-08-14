@@ -1,0 +1,22 @@
+.product-request-confirmation-page {
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+
+  &__icono {
+    font-size: 3rem;
+    width: 3rem;
+    height: 3rem;
+  }
+
+  &__acciones {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+}

@@ -7,15 +7,20 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:appbanco": "node dist/appbanco/server/server.mjs"
+    "test:e2e": "playwright test",
+    "test:e2e:report": "playwright show-report",
+    "serve:ssr:appbanco": "node dist/appbanco/server/server.mjs",
+    "lint": "ng lint"
   },
   "private": true,
   "packageManager": "npm@10.5.0",
   "dependencies": {
+    "@angular/cdk": "^22.0.6",
     "@angular/common": "^22.0.0",
     "@angular/compiler": "^22.0.0",
     "@angular/core": "^22.0.0",
     "@angular/forms": "^22.0.0",
+    "@angular/material": "^22.0.6",
     "@angular/platform-browser": "^22.0.0",
     "@angular/platform-server": "^22.0.0",
     "@angular/router": "^22.0.0",
@@ -28,11 +33,17 @@
     "@angular/build": "^22.0.7",
     "@angular/cli": "^22.0.7",
     "@angular/compiler-cli": "^22.0.0",
+    "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.62.1",
     "@types/express": "^5.0.1",
     "@types/node": "^20.17.19",
+    "@vitest/coverage-v8": "^4.1.10",
+    "angular-eslint": "22.1.0",
+    "eslint": "^10.6.0",
     "jsdom": "^28.0.0",
     "prettier": "^3.8.1",
     "typescript": "~6.0.2",
+    "typescript-eslint": "8.62.1",
     "vitest": "^4.0.8"
   }
 }

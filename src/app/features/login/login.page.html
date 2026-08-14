@@ -1,0 +1,52 @@
+<div class="login-page">
+  <form class="login-page__form" [formGroup]="form" (ngSubmit)="submit()" novalidate>
+    <h1>Ingresar</h1>
+
+    @if (infoMensaje()) {
+      <p class="login-page__info" role="status">{{ infoMensaje() }}</p>
+    }
+
+    <mat-form-field appearance="outline">
+      <mat-label>Usuario o documento</mat-label>
+      <input matInput formControlName="documento" autocomplete="username" />
+      @if (form.controls.documento.invalid && form.controls.documento.touched) {
+        <mat-error>Ingresa tu usuario o documento</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Contraseña</mat-label>
+      <input
+        matInput
+        formControlName="password"
+        [type]="passwordVisible() ? 'text' : 'password'"
+        autocomplete="current-password"
+      />
+      <button
+        mat-icon-button
+        matSuffix
+        type="button"
+        [attr.aria-pressed]="passwordVisible()"
+        aria-label="Mostrar u ocultar contraseña"
+        (click)="togglePasswordVisible()"
+      >
+        <mat-icon>{{ passwordVisible() ? 'visibility_off' : 'visibility' }}</mat-icon>
+      </button>
+      @if (form.controls.password.invalid && form.controls.password.touched) {
+        <mat-error>Ingresa tu contraseña</mat-error>
+      }
+    </mat-form-field>
+
+    @if (errorMensaje()) {
+      <p class="login-page__error" role="alert">{{ errorMensaje() }}</p>
+    }
+
+    <button mat-flat-button color="primary" type="submit" [disabled]="enviando()">
+      @if (enviando()) {
+        <mat-spinner diameter="20" />
+      } @else {
+        Ingresar
+      }
+    </button>
+  </form>
+</div>

@@ -1,0 +1,12 @@
+.product-card {
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__saldo {
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+}

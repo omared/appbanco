@@ -1,0 +1,19 @@
+<div class="my-requests-page">
+  <h1>Mis solicitudes</h1>
+
+  @if (solicitudes().length === 0) {
+    <p>Aún no tienes solicitudes registradas.</p>
+  } @else {
+    <mat-list>
+      @for (solicitud of solicitudes(); track solicitud.radicado) {
+        <mat-list-item>
+          <span matListItemTitle>{{ solicitud.productoNombre }}</span>
+          <span matListItemLine>Radicado: {{ solicitud.radicado }}</span>
+          <mat-chip-set matListItemMeta>
+            <mat-chip>{{ etiquetaEstado(solicitud.estado) }}</mat-chip>
+          </mat-chip-set>
+        </mat-list-item>
+      }
+    </mat-list>
+  }
+</div>

@@ -1,0 +1,28 @@
+.products-catalog-page {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 1rem;
+
+  &__lista {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  &__item {
+    cursor: pointer;
+
+    &--deshabilitado {
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+  }
+
+  &__etiqueta {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--mat-sys-primary);
+  }
+}

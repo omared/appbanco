@@ -1,0 +1,17 @@
+<mat-card class="product-card">
+  <mat-card-header>
+    <mat-card-title>{{ producto().nombre }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="product-card__content">
+    <span class="product-card__saldo">{{ saldoMostrado() }}</span>
+    <button
+      mat-icon-button
+      type="button"
+      [attr.aria-pressed]="saldoVisible()"
+      aria-label="Mostrar u ocultar saldo"
+      (click)="toggleSaldoVisible()"
+    >
+      <mat-icon>{{ saldoVisible() ? 'visibility_off' : 'visibility' }}</mat-icon>
+    </button>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,37 @@
+<div class="products-catalog-page">
+  <h1>Adquirir producto</h1>
+
+  @switch (estado()) {
+    @case ('error') {
+      <app-retry-banner
+        mensaje="No pudimos cargar los productos disponibles"
+        (retry)="cargarCatalogo()"
+      />
+    }
+    @case ('lista') {
+      <div class="products-catalog-page__lista">
+        @for (producto of catalogo(); track producto.id) {
+          <mat-card
+            class="products-catalog-page__item"
+            [class.products-catalog-page__item--deshabilitado]="producto.estadoParaCliente !== 'disponible'"
+            (click)="seleccionar(producto)"
+          >
+            <mat-card-header>
+              <mat-icon mat-card-avatar>{{ producto.icono }}</mat-icon>
+              <mat-card-title>{{ producto.nombre }}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <p>{{ producto.descripcion }}</p>
+              @if (etiquetaEstado(producto); as etiqueta) {
+                <span class="products-catalog-page__etiqueta">{{ etiqueta }}</span>
+              }
+            </mat-card-content>
+          </mat-card>
+        }
+      </div>
+    }
+    @default {
+      <p>Cargando…</p>
+    }
+  }
+</div>

@@ -1,0 +1,36 @@
+<div class="home-page">
+  <header class="home-page__header">
+    <h1>Tus productos</h1>
+    <button mat-icon-button aria-label="Cerrar sesión" (click)="cerrarSesion()">
+      <mat-icon>logout</mat-icon>
+    </button>
+  </header>
+
+  @switch (estado()) {
+    @case ('error') {
+      <app-retry-banner
+        mensaje="No pudimos cargar tu información, intenta nuevamente"
+        (retry)="cargarProductos()"
+      />
+    }
+    @case ('vacio') {
+      <div class="home-page__vacio">
+        <p>Aún no tienes productos</p>
+        <a mat-flat-button color="primary" routerLink="/productos">Adquirir producto</a>
+      </div>
+    }
+    @case ('lista') {
+      <div class="home-page__lista">
+        @for (producto of productos(); track producto.id) {
+          <app-product-card [producto]="producto" />
+        }
+      </div>
+      <a mat-stroked-button routerLink="/productos" class="home-page__adquirir">
+        Adquirir producto
+      </a>
+    }
+    @default {
+      <p>Cargando…</p>
+    }
+  }
+</div>

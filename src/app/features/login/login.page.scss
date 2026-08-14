@@ -1,0 +1,27 @@
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100dvh;
+  padding: 1rem;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    max-width: 360px;
+  }
+
+  &__error {
+    color: var(--mat-sys-error);
+    margin: 0;
+    font-size: 0.875rem;
+  }
+
+  &__info {
+    color: var(--mat-sys-on-surface-variant);
+    margin: 0;
+    font-size: 0.875rem;
+  }
+}
